@@ -1,4 +1,6 @@
-package auth_teste_itau.auth_api.domain;
+package auth_teste_itau.auth_api.domain.rules;
+
+import auth_teste_itau.auth_api.domain.entity.PasswordRule;
 
 public class UpperCaseRule implements PasswordRule {
     @Override

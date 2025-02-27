@@ -1,4 +1,6 @@
-package auth_teste_itau.auth_api.domain;
+package auth_teste_itau.auth_api.domain.service;
+
+import auth_teste_itau.auth_api.domain.entity.PasswordRule;
 
 import java.util.List;
 import java.util.stream.Collectors;

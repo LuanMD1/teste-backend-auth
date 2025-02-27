@@ -1,4 +1,6 @@
-package auth_teste_itau.auth_api.domain;
+package auth_teste_itau.auth_api.domain.rules;
+
+import auth_teste_itau.auth_api.domain.entity.PasswordRule;
 
 public class MinLengthRule implements PasswordRule {
     private final int minLength;
@@ -12,3 +14,4 @@ public class MinLengthRule implements PasswordRule {
         return password.length() < minLength ? "A senha deve ter pelo menos " + minLength + " caracteres" : null;
     }
 }
+
