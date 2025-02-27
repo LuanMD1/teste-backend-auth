@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
@@ -25,9 +26,11 @@ public class AuthController {
         List<String> errors = authUseCase.validatePassword(password);
 
         if (errors.isEmpty()) {
-            return ResponseEntity.ok(true);
+            Map<String, Object> response = Map.of("success", true);
+            return ResponseEntity.ok(response);
         } else {
-            return ResponseEntity.badRequest().body(errors);
+            Map<String, Object> errorResponse = Map.of("success", false, "errors", errors);
+            return ResponseEntity.badRequest().body(errorResponse);
         }
     }
 }
