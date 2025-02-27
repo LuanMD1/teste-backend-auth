@@ -1,8 +1,7 @@
-package auth_teste_itau.auth_api.application;
+package auth_teste_itau.auth_api.application.usecase;
 
-import auth_teste_itau.auth_api.domain.MinLengthRule;
-import auth_teste_itau.auth_api.domain.PasswordValidator;
-import auth_teste_itau.auth_api.domain.UpperCaseRule;
+import auth_teste_itau.auth_api.domain.rules.*;
+import auth_teste_itau.auth_api.domain.service.PasswordValidator;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -15,7 +14,11 @@ public class AuthUseCase {
     public AuthUseCase() {
         this.passwordValidator = new PasswordValidator(Arrays.asList(
                 new MinLengthRule(9),
-                new UpperCaseRule()
+                new OneDigitRule(),
+                new LowerCaseRule(),
+                new UpperCaseRule(),
+                new SpecialCharacterRule(),
+                new NoRepeatCharRule()
         ));
     }
 

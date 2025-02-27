@@ -1,6 +1,7 @@
 package auth_teste_itau.auth_api.controller;
 
-import auth_teste_itau.auth_api.application.AuthUseCase;
+import auth_teste_itau.auth_api.application.usecase.AuthUseCase;
+import auth_teste_itau.auth_api.application.dto.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +12,16 @@ import java.util.List;
 @RequestMapping("/auth")
 public class AuthController {
 
+    @Autowired
     private final AuthUseCase authUseCase;
 
-    @Autowired
     public AuthController(AuthUseCase authUseCase) {
         this.authUseCase = authUseCase;
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestParam String password) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        String password = request.getPassword();
         List<String> errors = authUseCase.validatePassword(password);
 
         if (errors.isEmpty()) {
