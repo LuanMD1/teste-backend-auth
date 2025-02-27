@@ -1,6 +1,6 @@
 STARTING & TESTING:\
 mvn -version, to check Maven version (if not installed, its required)\
-Git clone the repo with: gitclone https://github.com/LuanMD1/teste-backend-auth.git\
+Git clone the repo with: gitclone https://github.com/LuanMD1/teste-backend-auth.git \
 To run unity tests: mvn test\
 To start the API: mvn spring-boot:run\
 \
