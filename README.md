@@ -24,4 +24,4 @@ expects to return: \
 		"A senha deve conter pelo menos 1 caractere especial (ex: !@#$%^&*()-+)."\
 	],\
 	"success": false\
-}\
+}
