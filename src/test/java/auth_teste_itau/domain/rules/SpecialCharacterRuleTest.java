@@ -8,14 +8,14 @@ public class SpecialCharacterRuleTest {
 
     @Test
     void testPasswordWithSpecialCharacter() {
-        SpecialCharacterRule rule = new SpecialCharacterRule();
+        SpecialCharacterRule rule = new SpecialCharacterRule((new String[]{"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", ","}));
         String result = rule.validate("Senha@Forte");
         assertNull(result);
     }
 
     @Test
     void testPasswordWithoutSpecialCharacter() {
-        SpecialCharacterRule rule = new SpecialCharacterRule();
+        SpecialCharacterRule rule = new SpecialCharacterRule((new String[]{"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", ","}));
         String result = rule.validate("SenhaForte");
         assertNotNull(result);
         assertNotNull(result,"A senha deve conter pelo menos 1 caractere especial (ex: !@#$%^&*()-+).");

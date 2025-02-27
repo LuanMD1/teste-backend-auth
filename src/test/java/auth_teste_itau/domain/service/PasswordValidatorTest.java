@@ -13,10 +13,10 @@ public class PasswordValidatorTest {
     void testValidPassword() {
         PasswordValidator validator = new PasswordValidator(Arrays.asList(
                 new MinLengthRule(9),
-                new OneDigitRule(),
+                new DigitLimitRule(1),
                 new LowerCaseRule(),
                 new UpperCaseRule(),
-                new SpecialCharacterRule(),
+                new SpecialCharacterRule((new String[]{"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", ","})),
                 new NoRepeatCharRule()
         ));
 
@@ -28,10 +28,10 @@ public class PasswordValidatorTest {
     void testInvalidPassword() {
         PasswordValidator validator = new PasswordValidator(Arrays.asList(
                 new MinLengthRule(9),
-                new OneDigitRule(),
+                new DigitLimitRule(1),
                 new LowerCaseRule(),
                 new UpperCaseRule(),
-                new SpecialCharacterRule(),
+                new SpecialCharacterRule((new String[]{"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", ","})),
                 new NoRepeatCharRule()
         ));
 

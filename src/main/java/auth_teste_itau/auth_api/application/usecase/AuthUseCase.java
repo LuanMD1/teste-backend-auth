@@ -14,10 +14,10 @@ public class AuthUseCase {
     public AuthUseCase() {
         this.passwordValidator = new PasswordValidator(Arrays.asList(
                 new MinLengthRule(9),
-                new OneDigitRule(),
+                new DigitLimitRule(1),
                 new LowerCaseRule(),
                 new UpperCaseRule(),
-                new SpecialCharacterRule(),
+                new SpecialCharacterRule(new String[]{"!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", ","}),
                 new NoRepeatCharRule()
         ));
     }
